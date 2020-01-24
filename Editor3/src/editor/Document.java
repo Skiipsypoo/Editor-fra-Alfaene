@@ -53,10 +53,12 @@ public class Document {
     }
 
     public void removeChar(char c){
+        if (cursorC.contains(cursorCol)&& cursorR.contains(cursorRow)){
         cursorR.remove();
         cursorC.remove();
+        }
 
-        display.displayChar(c, cursorRow, cursorCol);
+        display.displayChar(' ', cursorRow, cursorCol);
 
         if(cursorCol == 0 && cursorRow == 0){
 
@@ -78,15 +80,16 @@ public class Document {
         cursorR.add(cursorRow,c);
 
         display.displayChar(c, cursorRow, cursorCol);
-        if(cursorRow == 19){
-
-        }
-        else
-        {
+        if(cursorRow < 19){
+            int ant = CharacterDisplay.WIDTH - cursorCol;
+            System.out.println(ant);
+            for(int i = 0; i < ant; i++){
+                cursorC.add('c');
+            }
+            System.out.println(cursorC.size());
             cursorCol = 0;
             cursorRow++;
         }
-
         display.displayCursor(' ', cursorRow, cursorCol);
 
     }
