@@ -34,56 +34,65 @@ public class Document {
         this.display = display;
         cursorCol = cursorRow = 0;
 
-    }
+        // Fill the Linked List with ' ' to avoid getting IndexOutOfBoundsException while traversing
+        int i = 0;
+        int j = 0;
+        while (i <= CharacterDisplay.HEIGHT) {
+            cursorR.add(' ');
+            i++;
+        }
 
-    public void insertChar(char c) {
-        //data[cursorRow][cursorCol] = c;
-        cursorR.add(cursorRow,c);
-        cursorC.add(cursorCol,c);
-        display.displayChar(c, cursorRow, cursorCol);
-        display.displayCursor(' ', cursorRow, cursorCol);
-        if(cursorCol == 39 && cursorRow == 19){}
-        else{
-        cursorCol++;
-        if (cursorCol >= CharacterDisplay.WIDTH) {
-            cursorCol = 0;
-            cursorRow++;
-         }
+        while (j <= CharacterDisplay.WIDTH) {
+            cursorC.add(' ');
+            j++;
         }
     }
 
-    public void removeChar(char c){
-        if (cursorC.contains(cursorCol)&& cursorR.contains(cursorRow)){
-        cursorR.remove();
-        cursorC.remove();
+    public void insertChar(char c) {
+        cursorR.add(cursorRow, c);
+        cursorC.add(cursorCol, c);
+        display.displayChar(c, cursorRow, cursorCol);
+        display.displayCursor(' ', cursorRow, cursorCol);
+        
+
+        if (cursorCol == 39 && cursorRow == 19) {
+        } else {
+            cursorCol++;
+            if (cursorCol >= CharacterDisplay.WIDTH) {
+                cursorCol = 0;
+                cursorRow++;
+            }
+        }
+    }
+
+    public void removeChar(char c) {
+        if (cursorC.contains(cursorCol) && cursorR.contains(cursorRow)) {
+            cursorR.remove();
+            cursorC.remove();
         }
 
         display.displayChar(' ', cursorRow, cursorCol);
 
-        if(cursorCol == 0 && cursorRow == 0){
+        if (cursorCol == 0 && cursorRow == 0) {
 
-
-        }
-        else if (cursorCol == 0 && cursorRow >= 0)
-        {  cursorCol = 39;
-           cursorRow--;
-        }
-        else{
+        } else if (cursorCol == 0 && cursorRow >= 0) {
+            cursorCol = 39;
+            cursorRow--;
+        } else {
             cursorCol--;
         }
         display.displayCursor(' ', cursorRow, cursorCol);
-
-
     }
-    public void shiftChar(char c){
-        cursorC.add(cursorCol,c) ;
-        cursorR.add(cursorRow,c);
+
+    public void shiftChar(char c) {
+        cursorC.add(cursorCol, c);
+        cursorR.add(cursorRow, c);
 
         display.displayChar(c, cursorRow, cursorCol);
-        if(cursorRow < 19){
+        if (cursorRow < 19) {
             int ant = CharacterDisplay.WIDTH - cursorCol;
             System.out.println(ant);
-            for(int i = 0; i < ant; i++){
+            for (int i = 0; i < ant; i++) {
                 cursorC.add('c');
             }
             System.out.println(cursorC.size());
@@ -91,29 +100,50 @@ public class Document {
             cursorRow++;
         }
         display.displayCursor(' ', cursorRow, cursorCol);
-
     }
-    public void moveUp(char c){
 
-        if(cursorRow == 0){
+    public void moveCursorUp() {
+        if (cursorRow == 0) {
 
-        }
-        else if (cursorRow > 0)
-        {
+        } else if (cursorRow > 0) {
             cursorRow--;
         }
-        display.displayCursor(data[cursorRow][cursorCol],cursorRow, cursorCol);
+        display.displayCursor(' ', cursorRow, cursorCol);
     }
-    public void moveDown(){
 
-        if(cursorRow == 19){
+    public void moveCursorDown() {
+        if (cursorCol == 19) {
 
-        }
-        else if (cursorRow > 19)
-        {
+        } else if (cursorRow < 19) {
             cursorRow++;
         }
-        display.displayCursor(data[cursorRow][cursorCol],cursorRow, cursorCol);
+        display.displayCursor(' ', cursorRow, cursorCol);
+    }
 
+    public void moveCursorRight() {
+
+        if (cursorCol == 39 && cursorRow == 19) {
+        } else {
+            cursorCol++;
+            if (cursorCol >= CharacterDisplay.WIDTH) {
+                cursorCol = 0;
+                cursorRow++;
+            }
+        }
+
+        display.displayCursor(' ', cursorRow, cursorCol);
+    }
+
+    public void moveCursorLeft() {
+        if (cursorCol == 0 && cursorRow == 0) {
+
+        } else if (cursorCol == 0 && cursorRow >= 0) {
+            cursorCol = 39;
+            cursorRow--;
+        } else {
+            cursorCol--;
+        }
+        display.displayCursor(' ', cursorRow, cursorCol);
     }
 }
+
