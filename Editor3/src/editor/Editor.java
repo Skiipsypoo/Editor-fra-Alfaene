@@ -11,6 +11,7 @@ import editor.display.CharacterDisplay;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.HeadlessException;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -89,7 +90,7 @@ public class Editor extends JFrame {
      * method in the action will be called
      *
      * @param keyStroke key to bind
-     * @param action action to bind the key to
+     * @param action    action to bind the key to
      */
     public void addKeyMapping(KeyStroke keyStroke, EditorAction action) {
         inputMap.put(keyStroke, action.getName());
@@ -99,40 +100,35 @@ public class Editor extends JFrame {
     public void addKeyMappings() {
         inputMap.clear();
         actionMap.clear();
+
+
         char ch;
-
-
-
-
-        for  (ch = '\b'; ch <= 'ø'; ch++) {
+        for (ch = '\b'; ch <= 'ø'; ch++) {
             System.out.println(ch);
 
             String name = "insertChar";
             EditorAction action = new InsertAction(name, this);
             addKeyMapping(KeyStroke.getKeyStroke(ch), action);
 
-
-            if(ch == '\b' ){
-                 name = "removeChar";
-                EditorAction actions = new RemoveAction(name,this);
+            if (ch == '\b') {
+                name = "removeChar";
+                EditorAction actions = new RemoveAction(name, this);
                 addKeyMapping(KeyStroke.getKeyStroke(ch), actions);
-            } else if(ch == '\n'){
+            } else if (ch == '\n') {
                 name = "shiftChar";
-                EditorAction shift = new LineshiftAction(name,this);
-                addKeyMapping(KeyStroke.getKeyStroke(ch),shift);
-            } else if(ch == '\t'){
-              name= "moveUp";
-              EditorAction action1 = new MovingUpAction(name, this);
-              addKeyMapping(KeyStroke.getKeyStroke(ch), action1);
+                EditorAction shift = new LineshiftAction(name, this);
+                addKeyMapping(KeyStroke.getKeyStroke(ch), shift);
             }
 
+            addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, InputEvent.ALT_MASK), new NavigationAction("moveLeft", "LEFT", this));
+            addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, InputEvent.ALT_MASK), new NavigationAction("moveRight", "RIGHT", this));
+            addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.ALT_MASK), new NavigationAction("moveUp", "UP", this));
+            addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, InputEvent.ALT_MASK), new NavigationAction("moveDown", "DOWN", this));
 
 
-         }
+
         }
-
-
-
+    }
 
 
     public CharacterDisplay getDisplay() {
