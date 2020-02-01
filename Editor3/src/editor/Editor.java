@@ -97,6 +97,8 @@ public class Editor extends JFrame {
         actionMap.put(action.getName(), action);
     }
 
+
+
     public void addKeyMappings() {
         inputMap.clear();
         actionMap.clear();
@@ -124,8 +126,6 @@ public class Editor extends JFrame {
             addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, InputEvent.ALT_MASK), new NavigationAction("moveRight", "RIGHT", this));
             addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.ALT_MASK), new NavigationAction("moveUp", "UP", this));
             addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, InputEvent.ALT_MASK), new NavigationAction("moveDown", "DOWN", this));
-
-
 
         }
     }

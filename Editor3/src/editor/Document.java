@@ -6,9 +6,9 @@
 package editor;
 
 import editor.display.CharacterDisplay;
+import sun.awt.image.ImageWatched;
 
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * This class represents the document being edited. Using a 2d array to hold the
@@ -25,6 +25,7 @@ public class Document {
     private int cursorRow;
     private int cursorCol;
     private char[][] data;
+    LinkedList<Character> column = new LinkedList<>();
 
 
     LinkedList<Character> cursorC = new LinkedList<>();
@@ -37,23 +38,61 @@ public class Document {
         // Fill the Linked List with ' ' to avoid getting IndexOutOfBoundsException while traversing
         int i = 0;
         int j = 0;
-        while (i <= CharacterDisplay.HEIGHT) {
+         while (i <= 800) {
             cursorR.add(' ');
             i++;
+          }
+
+          while (j <= 800) {
+              cursorC.add(' ');
+              j++;
+          }
+    }
+
+    public void shiftChars() {
+
+        //ListIterator itCol = cursorC.listIterator(cursorCol);
+        //ListIterator itRow = cursorC.listIterator(cursorRow);
+
+        int i = 0;
+        int j = 1;
+
+        int colIndex = cursorCol;
+        int rowIndex = cursorRow;
+
+        while(colIndex < cursorC.size() -1) {
+
+            Character val = cursorC.get(colIndex + 1);
+            cursorC.add(colIndex + 2, val);
+
+            cursorC.removeLast();
+
+
+            colIndex++;
         }
 
-        while (j <= CharacterDisplay.WIDTH) {
-            cursorC.add(' ');
-            j++;
+        while(rowIndex < cursorR.size() -1) {
+
+            Character val = cursorR.get(rowIndex + 1);
+            cursorR.add(rowIndex + 2, val);
+
+            cursorR.removeLast();
+
+            rowIndex++;
         }
     }
 
     public void insertChar(char c) {
         cursorR.add(cursorRow, c);
         cursorC.add(cursorCol, c);
+        // cursorR.removeLast();
+        // cursorC.removeLast();
+
+        shiftChars();
+
         display.displayChar(c, cursorRow, cursorCol);
         display.displayCursor(' ', cursorRow, cursorCol);
-        
+
 
         if (cursorCol == 39 && cursorRow == 19) {
         } else {
@@ -64,6 +103,7 @@ public class Document {
             }
         }
     }
+
 
     public void removeChar(char c) {
         if (cursorC.contains(cursorCol) && cursorR.contains(cursorRow)) {
