@@ -6,7 +6,7 @@
 package editor;
 
 import editor.display.CharacterDisplay;
-import sun.awt.image.ImageWatched;
+
 
 import java.util.*;
 
@@ -25,68 +25,43 @@ public class Document {
     private int cursorRow;
     private int cursorCol;
     private char[][] data;
-    LinkedList<Character> column = new LinkedList<>();
+    private LinkedList<LinkedList> linkedColumn = new LinkedList<>();
 
 
-    LinkedList<Character> cursorC = new LinkedList<>();
-    LinkedList<Character> cursorR = new LinkedList<>();
+    // Adds all the columns to the linked list.
+    private void initializeLinky() {
+
+        // Create 20 rows to the board
+        for (int i = 0; i < 20; i++) {
+            linkedColumn.add(new LinkedList<Character>());
+        }
+
+        // Fill the rows with whitespace
+        for (int i = 0; i < 20; i++) {
+            LinkedList row = linkedColumn.get(i);
+
+            for (int j = 0; j < 40; j++) {
+                row.add(j, ' ');
+            }
+        }
+
+    }
 
     public Document(CharacterDisplay display) {
         this.display = display;
         cursorCol = cursorRow = 0;
 
-        // Fill the Linked List with ' ' to avoid getting IndexOutOfBoundsException while traversing
-        int i = 0;
-        int j = 0;
-         while (i <= 800) {
-            cursorR.add(' ');
-            i++;
-          }
-
-          while (j <= 800) {
-              cursorC.add(' ');
-              j++;
-          }
+        initializeLinky();
     }
 
     public void shiftChars() {
+        
 
-        //ListIterator itCol = cursorC.listIterator(cursorCol);
-        //ListIterator itRow = cursorC.listIterator(cursorRow);
-
-        int i = 0;
-        int j = 1;
-
-        int colIndex = cursorCol;
-        int rowIndex = cursorRow;
-
-        while(colIndex < cursorC.size() -1) {
-
-            Character val = cursorC.get(colIndex + 1);
-            cursorC.add(colIndex + 2, val);
-
-            cursorC.removeLast();
-
-
-            colIndex++;
-        }
-
-        while(rowIndex < cursorR.size() -1) {
-
-            Character val = cursorR.get(rowIndex + 1);
-            cursorR.add(rowIndex + 2, val);
-
-            cursorR.removeLast();
-
-            rowIndex++;
-        }
     }
 
     public void insertChar(char c) {
-        cursorR.add(cursorRow, c);
-        cursorC.add(cursorCol, c);
-        // cursorR.removeLast();
-        // cursorC.removeLast();
+        linkedColumn.get(cursorRow).add(cursorCol, c);
+
 
         shiftChars();
 
@@ -106,9 +81,8 @@ public class Document {
 
 
     public void removeChar(char c) {
-        if (cursorC.contains(cursorCol) && cursorR.contains(cursorRow)) {
-            cursorR.remove();
-            cursorC.remove();
+        if (linkedColumn.get(cursorRow).contains(cursorCol)) {
+            linkedColumn.get(cursorRow).remove();
         }
 
         display.displayChar(' ', cursorRow, cursorCol);
@@ -125,17 +99,16 @@ public class Document {
     }
 
     public void shiftChar(char c) {
-        cursorC.add(cursorCol, c);
-        cursorR.add(cursorRow, c);
+        linkedColumn.get(cursorRow).add(c);
 
         display.displayChar(c, cursorRow, cursorCol);
         if (cursorRow < 19) {
             int ant = CharacterDisplay.WIDTH - cursorCol;
             System.out.println(ant);
             for (int i = 0; i < ant; i++) {
-                cursorC.add('c');
+                linkedColumn.get(cursorRow).add('c');
             }
-            System.out.println(cursorC.size());
+            System.out.println(linkedColumn.get(cursorRow).size());
             cursorCol = 0;
             cursorRow++;
         }
