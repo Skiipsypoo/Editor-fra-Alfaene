@@ -7,8 +7,8 @@ package editor;
 
 import editor.display.CharacterDisplay;
 
-import java.util.HashMap;
-import java.util.LinkedList;
+
+import java.util.*;
 
 /**
  * This class represents the document being edited. Using a 2d array to hold the
@@ -25,35 +25,69 @@ public class Document {
     private int cursorRow;
     private int cursorCol;
     private char[][] data;
+    private LinkedList<LinkedList> linkedColumn = new LinkedList<>();
 
 
-    LinkedList<Character> cursorC = new LinkedList<>();
-    LinkedList<Character> cursorR = new LinkedList<>();
+    // Initialize the Linked Lists
+    private void initializeLinky() {
+
+        // Create 20 rows to the board
+        for (int i = 0; i < 20; i++) {
+            linkedColumn.add(new LinkedList<Character>());
+        }
+
+        // First access the outer list, then fill the inner lists with Chars.
+        for (int i = 0; i < 20; i++) {
+            LinkedList row = linkedColumn.get(i);
+
+            for (int j = 0; j < 40; j++) {
+                row.add(j, ' ');
+            }
+        }
+
+    }
 
     public Document(CharacterDisplay display) {
         this.display = display;
         cursorCol = cursorRow = 0;
 
-        // Fill the Linked List with ' ' to avoid getting IndexOutOfBoundsException while traversing
-        int i = 0;
-        int j = 0;
-        while (i <= CharacterDisplay.HEIGHT) {
-            cursorR.add(' ');
-            i++;
+        initializeLinky();
+    }
+
+    public void shiftChars() {
+        int row = cursorRow;
+        int col = cursorCol + 1;
+
+
+
+
+        int index;
+        boolean running = true;
+
+        while(running && row < 20) {
+
+            Character current = (Character) linkedColumn.get(row).get(col);
+            linkedColumn.get(row).add(col +1, current);
+
+            if (col == 40){
+                row++;
+                col = 0;
+            }
+            col++;
+
         }
 
-        while (j <= CharacterDisplay.WIDTH) {
-            cursorC.add(' ');
-            j++;
-        }
     }
 
     public void insertChar(char c) {
-        cursorR.add(cursorRow, c);
-        cursorC.add(cursorCol, c);
+        linkedColumn.get(cursorRow).add(cursorCol, c);
+
+
+        shiftChars();
+
         display.displayChar(c, cursorRow, cursorCol);
         display.displayCursor(' ', cursorRow, cursorCol);
-        
+
 
         if (cursorCol == 39 && cursorRow == 19) {
         } else {
@@ -65,10 +99,10 @@ public class Document {
         }
     }
 
+
     public void removeChar(char c) {
-        if (cursorC.contains(cursorCol) && cursorR.contains(cursorRow)) {
-            cursorR.remove();
-            cursorC.remove();
+        if (linkedColumn.get(cursorRow).contains(cursorCol)) {
+            linkedColumn.get(cursorRow).remove();
         }
 
         display.displayChar(' ', cursorRow, cursorCol);
@@ -85,17 +119,16 @@ public class Document {
     }
 
     public void shiftChar(char c) {
-        cursorC.add(cursorCol, c);
-        cursorR.add(cursorRow, c);
+        linkedColumn.get(cursorRow).add(c);
 
         display.displayChar(c, cursorRow, cursorCol);
         if (cursorRow < 19) {
             int ant = CharacterDisplay.WIDTH - cursorCol;
             System.out.println(ant);
             for (int i = 0; i < ant; i++) {
-                cursorC.add('c');
+                linkedColumn.get(cursorRow).add('c');
             }
-            System.out.println(cursorC.size());
+            System.out.println(linkedColumn.get(cursorRow).size());
             cursorCol = 0;
             cursorRow++;
         }
