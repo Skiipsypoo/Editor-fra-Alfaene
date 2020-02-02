@@ -28,7 +28,7 @@ public class Document {
     private LinkedList<LinkedList> linkedColumn = new LinkedList<>();
 
 
-    // Adds all the columns to the linked list.
+    // Initialize the Linked Lists
     private void initializeLinky() {
 
         // Create 20 rows to the board
@@ -36,7 +36,7 @@ public class Document {
             linkedColumn.add(new LinkedList<Character>());
         }
 
-        // Fill the rows with whitespace
+        // First access the outer list, then fill the inner lists with Chars.
         for (int i = 0; i < 20; i++) {
             LinkedList row = linkedColumn.get(i);
 
@@ -55,7 +55,27 @@ public class Document {
     }
 
     public void shiftChars() {
-        
+        int row = cursorRow;
+        int col = cursorCol + 1;
+
+
+
+
+        int index;
+        boolean running = true;
+
+        while(running && row < 20) {
+
+            Character current = (Character) linkedColumn.get(row).get(col);
+            linkedColumn.get(row).add(col +1, current);
+
+            if (col == 40){
+                row++;
+                col = 0;
+            }
+            col++;
+
+        }
 
     }
 

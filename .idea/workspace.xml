@@ -5,11 +5,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/src/editor/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/src/editor/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/META-INF/Javaprog.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Document.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Document.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Editor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Editor$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Editor.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Editor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/EditorAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/EditorAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/InsertAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/InsertAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/LineshiftAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/LineshiftAction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/NavigationAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/NavigationAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/RemoveAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/action/RemoveAction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$CharacterRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$CharacterRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$DisplayTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$DisplayTableModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -117,7 +122,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
