@@ -28,6 +28,13 @@ public class Document {
     private LinkedList<LinkedList> linkedColumn = new LinkedList<>();
 
 
+    public Document(CharacterDisplay display) {
+        this.display = display;
+        cursorCol = cursorRow = 0;
+
+        initializeLinky();
+    }
+
     // Initialize the Linked Lists
     private void initializeLinky() {
 
@@ -47,43 +54,26 @@ public class Document {
 
     }
 
-    public Document(CharacterDisplay display) {
-        this.display = display;
-        cursorCol = cursorRow = 0;
 
-        initializeLinky();
-    }
-
-    public void shiftChars() {
+    private void shiftChars() {
         int row = cursorRow;
-        int col = cursorCol + 1;
+        int col = cursorCol;
 
-
-
-
-        int index;
-        boolean running = true;
-
-        while(running && row < 20) {
-
+        for(int i = col; i < 40; i++){
             Character current = (Character) linkedColumn.get(row).get(col);
-            linkedColumn.get(row).add(col +1, current);
 
-            if (col == 40){
-                row++;
-                col = 0;
-            }
+            linkedColumn.get(row).add(col + 1, current);
+            linkedColumn.get(row).removeLast();
             col++;
-
         }
 
     }
 
     public void insertChar(char c) {
+        shiftChars();
+
         linkedColumn.get(cursorRow).add(cursorCol, c);
 
-
-        shiftChars();
 
         display.displayChar(c, cursorRow, cursorCol);
         display.displayCursor(' ', cursorRow, cursorCol);
