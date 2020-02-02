@@ -64,6 +64,9 @@ public class Document {
 
             linkedColumn.get(row).add(col + 1, current);
             linkedColumn.get(row).removeLast();
+
+            display.displayChar((Character) linkedColumn.get(row).get(col), cursorRow, cursorCol);
+
             col++;
         }
 
