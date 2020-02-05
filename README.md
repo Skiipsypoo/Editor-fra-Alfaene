@@ -1,6 +1,16 @@
 # Algoritmer og datastrukturer oppgave 1
 Av Martin Ruud og Kristian Bjurholt Rein 
+<h4>Keybindings</h4>
+```
+"ALT" + "←" = beveg cursor til venstre
+"ALT" + "→" = beveg cursor til høyre
+"ALT" + "↑" = beveg cursor oppover 
+"ALT" + "↓" = beveg cursor nedover
 
+Programmet støtter alle karakterer mellom kontrollkarakter for backspace til liten ø i unicode. 
+A-Z|0-1|a-z|§-?|Å-Ø|å-ø| 
+
+```
 <h4> Beskrivelse av datastrukturer </h4> 
 I denne oppgaven valgte vi å bruke Linked List som datastruktur i Document klassen. Grunnen til dette er at en Linked List består av noder som peker på hverandre. Om man da velger å slette en karakter, vil bare pekeren til neste node endres. Etter mye prøving og feiling har vi til slutt kommet frem til en Linked List som inneholder 20 Linked Lists (en for hver rad). Dette gjorde det enkelt å implementere navigasjon til pekeren og inserting av data i listene. Selve navigeringen oppfører seg i stor grad likt som i en 2d array som eksisterte i det vi begynte med oppgaven. 
 
