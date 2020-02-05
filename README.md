@@ -3,6 +3,14 @@ Av Martin Ruud og Kristian Bjurholt Rein
 
 <h4> Keybindings </h4>
 
+"A-Z|0-1|a-z|§-?|Å-Ø|å-ø|" = karakter innsetting
+
+"Backspace/Delete" = sletting
+ 
+"Enter" = linjeskifte
+
+"Space" = mellomrom
+
 "ALT" + "←" = beveg cursor til venstre
 
 "ALT" + "→" = beveg cursor til høyre
@@ -13,7 +21,7 @@ Av Martin Ruud og Kristian Bjurholt Rein
 
 Programmet støtter alle karakterer mellom kontrollkarakter for backspace til liten ø i unicode.
 
-A-Z|0-1|a-z|§-?|Å-Ø|å-ø|
+
 
 
 <h4> Beskrivelse av datastrukturer </h4> 
