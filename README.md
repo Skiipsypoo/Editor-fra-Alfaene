@@ -4,8 +4,11 @@ Av Martin Ruud og Kristian Bjurholt Rein
 <h4> Keybindings </h4>
 
 "ALT" + "←" = beveg cursor til venstre
+
 "ALT" + "→" = beveg cursor til høyre
-"ALT" + "↑" = beveg cursor oppover 
+
+"ALT" + "↑" = beveg cursor oppover
+
 "ALT" + "↓" = beveg cursor nedover
 
 Programmet støtter alle karakterer mellom kontrollkarakter for backspace til liten ø i unicode. 
