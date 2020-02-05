@@ -11,7 +11,8 @@ Av Martin Ruud og Kristian Bjurholt Rein
 
 "ALT" + "↓" = beveg cursor nedover
 
-Programmet støtter alle karakterer mellom kontrollkarakter for backspace til liten ø i unicode. 
+Programmet støtter alle karakterer mellom kontrollkarakter for backspace til liten ø i unicode.
+
 A-Z|0-1|a-z|§-?|Å-Ø|å-ø|
 
 
