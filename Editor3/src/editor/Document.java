@@ -55,27 +55,19 @@ public class Document {
     }
 
 
-    private void shiftChars() {
-        int row = cursorRow;
-        int col = cursorCol;
-
-        for(int i = col; i < 40; i++){
-            Character current = (Character) linkedColumn.get(row).get(col);
-
-            linkedColumn.get(row).add(col + 1, current);
-            linkedColumn.get(row).removeLast();
-            col++;
-        }
-
-    }
-
     public void insertChar(char c) {
-        shiftChars();
-
+        // Adds a char to the list
         linkedColumn.get(cursorRow).add(cursorCol, c);
 
+        // Removes a char from the list
+        linkedColumn.get(cursorRow).removeLast();
 
-        display.displayChar(c, cursorRow, cursorCol);
+
+
+        for(int i= cursorCol; i < 40; i++){
+            display.displayChar((Character) linkedColumn.get(cursorRow).get(i), cursorRow, i);
+        }
+
         display.displayCursor(' ', cursorRow, cursorCol);
 
 
@@ -91,12 +83,18 @@ public class Document {
 
 
     public void removeChar(char c) {
-        if (linkedColumn.get(cursorRow).contains(cursorCol)) {
-            linkedColumn.get(cursorRow).remove();
+
+        // Adds a char to the list
+        linkedColumn.get(cursorRow).set(cursorCol, ' ');
+        
+
+        for(int i= cursorCol; i < 40; i++){
+            display.displayChar((Character) linkedColumn.get(cursorRow).get(i), cursorRow, i);
         }
 
-        display.displayChar(' ', cursorRow, cursorCol);
+        display.displayCursor(' ', cursorRow, cursorCol);
 
+        // Cursor logic
         if (cursorCol == 0 && cursorRow == 0) {
 
         } else if (cursorCol == 0 && cursorRow >= 0) {
