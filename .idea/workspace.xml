@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66201cb8-3e30-41d5-bcc9-4a7cdf1bf854" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Javaprog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Javaprog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/src/editor/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/src/editor/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Editor3/src/editor/display/CharacterDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/src/editor/display/CharacterDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Document.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Document.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$DisplayTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$DisplayTableModel.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +39,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3137931" />
+    <property name="settings.editor.selected.configurable" value="preferences.language.Kotlin" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -102,6 +103,9 @@
       <workItem from="1579617606664" duration="23070000" />
       <workItem from="1579860160548" duration="6121000" />
       <workItem from="1580573047435" duration="7254000" />
+      <workItem from="1580728215199" duration="1532000" />
+      <workItem from="1580802424960" duration="117000" />
+      <workItem from="1580894964032" duration="4223000" />
     </task>
     <servers />
   </component>

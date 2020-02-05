@@ -49,6 +49,8 @@ public class Document {
 
             for (int j = 0; j < 40; j++) {
                 row.add(j, ' ');
+
+
             }
         }
 
@@ -56,20 +58,26 @@ public class Document {
 
 
     private void shiftChars() {
-        int row = cursorRow;
-        int col = cursorCol;
 
-        for(int i = col; i < 40; i++){
-            Character current = (Character) linkedColumn.get(row).get(col);
+        // Keeps track of total number of iterations
+        int iterations = 0;
 
-            linkedColumn.get(row).add(col + 1, current);
-            linkedColumn.get(row).removeLast();
+        for(int i = cursorCol; i < 40; i= i+3){
 
-            display.displayChar((Character) linkedColumn.get(row).get(col), cursorRow, cursorCol);
+            Character current = (Character) linkedColumn.get(cursorRow).get(i);
+            Character next = (Character) linkedColumn.get(cursorRow).get(i + 1);
 
-            col++;
+            linkedColumn.get(cursorRow).add(i + 1, current);
+            linkedColumn.get(cursorRow).add(i + 2, next);
+
+
+            linkedColumn.get(cursorRow).removeLast();
+
+
         }
-
+        for(int i = cursorCol; i < 40; i++) {
+            display.displayChar((Character) linkedColumn.get(cursorRow).get(cursorCol), cursorRow, i);
+        }
     }
 
     public void insertChar(char c) {
