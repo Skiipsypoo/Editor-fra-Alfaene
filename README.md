@@ -2,5 +2,7 @@
 Av Martin Ruud og Kristian Bjurholt Rein 
 
 <h4> Beskrivelse av datastrukturer </h4> 
-Vi valgte å gå bruke Linked List som datastruktur i Document klassen. Grunnen til dette er at en Linked List består av noder som peker på hverandre. Om man da velger å slette en karakter, vil bare pekeren til neste node endres. Etter mye prøving og feiling har vi til slutt kommet frem til en Linked List som inneholder 20 Linked Lists (en for hver rad). 
+I denne oppgaven valgte vi å bruke Linked List som datastruktur i Document klassen. Grunnen til dette er at en Linked List består av noder som peker på hverandre. Om man da velger å slette en karakter, vil bare pekeren til neste node endres. Etter mye prøving og feiling har vi til slutt kommet frem til en Linked List som inneholder 20 Linked Lists (en for hver rad). Dette gjorde det enkelt å implementere navigasjon til pekeren og inserting av data i listene. Selve navigeringen oppfører seg i stor grad likt som i en 2d array som eksisterte i det vi begynte med oppgaven. 
+
+I Document er det lagt til følgende funksjoner: innsetting, linjeskift, navigering, sletting og forskyvning av tekst om pekeren blir flyttet bakover. I tilleg har det blitt implementert logikk for å behandle outOfBoundsExceptions. Dette er tross alt det minste man forventer av en moderne teksteditor. 
 
