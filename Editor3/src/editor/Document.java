@@ -167,9 +167,13 @@ public class Document {
             cursorCol--;
         }
         display.displayCursor(' ', cursorRow, cursorCol);
-        writeToFile wTF = new writeToFile();
+
+    }
+
+    public void saveFunction(){
         for(LinkedList linked : linkedColumn){
             System.out.println("Først loop");
+            writeToFile wTF = new writeToFile();
             for(int i = 0; i < linked.size(); i++){
                 System.out.println("Andreloop");
                 char ch = (char) linked.get(i);
@@ -180,16 +184,6 @@ public class Document {
             wTF.addToFile('\n');
 
     }
-    }
-    public void saveFunction(){
-        for(LinkedList linked : linkedColumn){
-            for(int i = 0; i < linked.size(); i++){
-
-
-            }
-        }
-
-
     }
 }
 

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66201cb8-3e30-41d5-bcc9-4a7cdf1bf854" name="Default Changelist" comment="Fikset enter">
-      <change afterPath="$PROJECT_DIR$/Editor3/src/editor/SaveRead/readFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Editor3/src/editor/SaveRead/writeToFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="66201cb8-3e30-41d5-bcc9-4a7cdf1bf854" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/src/editor/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/src/editor/Document.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/src/editor/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/src/editor/Editor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/src/editor/display/CharacterDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/src/editor/display/CharacterDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Document.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Document.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Editor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Editor$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Editor.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/Editor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$CharacterRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$CharacterRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$DisplayTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay$DisplayTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/Editor3/test/Javaprog/editor/display/CharacterDisplay.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,8 +106,15 @@
       <workItem from="1579617606664" duration="23070000" />
       <workItem from="1579860160548" duration="6121000" />
       <workItem from="1580943748126" duration="46000" />
-      <workItem from="1581021276513" duration="5996000" />
+      <workItem from="1581021276513" duration="7878000" />
     </task>
+    <task id="LOCAL−00001" summary="Fikset enter">
+      <created>1581027492626</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1581027492626</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,5 +132,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fikset enter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fikset enter" />
   </component>
 </project>
