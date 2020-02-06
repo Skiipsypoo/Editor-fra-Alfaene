@@ -57,7 +57,6 @@ public class Editor extends JFrame {
                 exit();
             }
         });
-
         display = new CharacterDisplay();
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());

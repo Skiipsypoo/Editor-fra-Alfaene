@@ -5,6 +5,7 @@
  */
 package editor;
 
+import editor.SaveRead.writeToFile;
 import editor.display.CharacterDisplay;
 
 
@@ -25,6 +26,8 @@ public class Document {
     private int cursorRow;
     private int cursorCol;
     private char[][] data;
+
+    private StringBuilder sb;
     private LinkedList<LinkedList> linkedColumn = new LinkedList<>();
 
 
@@ -69,7 +72,6 @@ public class Document {
         }
 
         display.displayCursor(' ', cursorRow, cursorCol);
-
 
         if (cursorCol == 39 && cursorRow == 19) {
         } else {
@@ -165,6 +167,29 @@ public class Document {
             cursorCol--;
         }
         display.displayCursor(' ', cursorRow, cursorCol);
+        writeToFile wTF = new writeToFile();
+        for(LinkedList linked : linkedColumn){
+            System.out.println("Først loop");
+            for(int i = 0; i < linked.size(); i++){
+                System.out.println("Andreloop");
+                char ch = (char) linked.get(i);
+                System.out.println(ch);
+                wTF.addToFile(ch);
+
+            }
+            wTF.addToFile('\n');
+
+    }
+    }
+    public void saveFunction(){
+        for(LinkedList linked : linkedColumn){
+            for(int i = 0; i < linked.size(); i++){
+
+
+            }
+        }
+
+
     }
 }
 
