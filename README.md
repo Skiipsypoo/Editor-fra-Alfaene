@@ -20,6 +20,7 @@ Av Martin Ruud og Kristian Bjurholt Rein
 "ALT" + "↓" = beveg cursor nedover
 
 Programmet støtter alle karakterer mellom kontrollkarakter for backspace til liten ø i unicode.
+Hvis programmet ikke sletter når man presser backspace keyen, må man kommentere bort if statmentenen som sjekker for /b og tar bort kommentaren fra delete function begge er markert med kommentarer i editor koden. 
 
 
 
@@ -30,6 +31,6 @@ I denne oppgaven valgte vi å bruke Linked List som datastruktur i Document klas
 I Document er det lagt til følgende funksjoner: innsetting, linjeskift, navigering, sletting og forskyvning av tekst om pekeren blir flyttet bakover. I tilleg har det blitt implementert logikk for å behandle outOfBoundsExceptions. Dette er tross alt det minste man forventer av en moderne teksteditor. 
 
 <h4>TODO</h4>
-+ Legge til lese funksjon
-+ Fin tune lagrefunksjon
-+ Smile og ha en god dag
+ * Legge til lese funksjon
+* Fin tune lagrefunksjon
+* Smile og ha en god dag
