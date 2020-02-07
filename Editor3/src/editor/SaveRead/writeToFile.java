@@ -4,6 +4,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+/**
+ *  Brukt men ikke optimalisert, skriver karakterene til en tekstfil, som heter temp.txt. Det vil man finne i Editor3 mappen
+ * @author krisRein
+ **/
 
 public class writeToFile {
     File file = new File("temp.txt");

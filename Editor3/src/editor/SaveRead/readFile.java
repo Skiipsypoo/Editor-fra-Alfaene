@@ -10,6 +10,10 @@ public class readFile {
 
 
     }
+    /**
+    *  Ikke i bruk enda
+    * @author krisRein
+    **/
     public String read(){
         try {
             FileReader reader = new FileReader( "temp.txt");
