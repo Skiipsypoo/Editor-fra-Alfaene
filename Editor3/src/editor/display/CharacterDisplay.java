@@ -5,16 +5,18 @@
  */
 package editor.display;
 
+import editor.Document;
+import editor.SaveRead.writeToFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -44,7 +46,6 @@ public class CharacterDisplay extends JPanel {
 
     public CharacterDisplay() {
         tableModel = new DisplayTableModel();
-
         JTable table = createTable();
         messageArea = new JTextField();
         messageArea.setEditable(false);
@@ -52,6 +53,8 @@ public class CharacterDisplay extends JPanel {
         setLayout(layout);
         add(table, BorderLayout.CENTER);
         add(messageArea, BorderLayout.SOUTH);
+
+
     }
 
     private JTable createTable() {
@@ -78,6 +81,8 @@ public class CharacterDisplay extends JPanel {
 
         return table;
     }
+
+
 
     /**
      * Display the character c, in position row,col in the grid. Use this method
@@ -178,7 +183,7 @@ public class CharacterDisplay extends JPanel {
             System.out.format("screen(%d,%d) <= %s\n", row, col, data);
             data[row][col] = (String) o;
             fireTableCellUpdated(row, col);
-//            repaint();
+            repaint();
         }
 
         @Override
