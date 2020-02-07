@@ -141,5 +141,6 @@ public class Editor extends JFrame {
         button.setBounds(100,100,100,100);
         return button;
     }
+
 }
 

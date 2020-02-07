@@ -7,14 +7,18 @@ import java.io.IOException;
 
 public class readFile {
     public readFile(String filename){
-        try {
-            FileReader reader = new FileReader(filename+ ".txt");
-            BufferedReader bufferedReader = new BufferedReader(reader);
 
+
+    }
+    public String read(){
+        try {
+            FileReader reader = new FileReader( "temp.txt");
+            BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
 
             while ((line = bufferedReader.readLine()) != null){
                 System.out.println(line);
+                return line;
             }
             reader.close();
         } catch (FileNotFoundException e) {
@@ -23,6 +27,7 @@ public class readFile {
             e.printStackTrace();
         }
 
-
+        return null;
     }
+
 }
