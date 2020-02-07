@@ -115,7 +115,9 @@ public class Editor extends JFrame {
                 name = "removeChar";
                 EditorAction actions = new RemoveAction(name, this);
                 addKeyMapping(KeyStroke.getKeyStroke(ch), actions);
-            } else if (ch == '\n') {
+            }
+            
+            if (ch == '\n') {
                 name = "shiftChar";
                 EditorAction shift = new LineshiftAction(name, this);
                 addKeyMapping(KeyStroke.getKeyStroke(ch), shift);
