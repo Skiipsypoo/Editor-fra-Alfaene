@@ -172,18 +172,17 @@ public class Document {
 
     public void saveFunction(){
         for(LinkedList linked : linkedColumn){
-            System.out.println("Først loop");
             writeToFile wTF = new writeToFile();
             for(int i = 0; i < linked.size(); i++){
-                System.out.println("Andreloop");
                 char ch = (char) linked.get(i);
-                System.out.println(ch);
+
                 wTF.addToFile(ch);
 
             }
             wTF.addToFile('\n');
 
     }
+
     }
 }
 
