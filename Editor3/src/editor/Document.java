@@ -66,13 +66,14 @@ public class Document {
         linkedColumn.get(cursorRow).removeLast();
 
 
-
+        // Updates the list with displayable characters
         for(int i= cursorCol; i < 40; i++){
             display.displayChar((Character) linkedColumn.get(cursorRow).get(i), cursorRow, i);
         }
 
         display.displayCursor(' ', cursorRow, cursorCol);
 
+        // If cursor on the end of column, increment the row.
         if (cursorCol == 39 && cursorRow == 19) {
         } else {
             cursorCol++;
