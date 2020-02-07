@@ -54,12 +54,12 @@ public class Editor extends JFrame {
         contentPane.setLayout(new BorderLayout());
         contentPane.add(display, BorderLayout.CENTER);
         JButton button = createButton();add(button,BorderLayout.PAGE_END);
-        button.addActionListener(new ActionListener() {
+/*        button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 doc.saveFunction();
             }
-        });
+        });*/
         /**
          * The inputMap and actionMap determine what happens when the user
          * presses a key on the keyboard. The keys are not hard-coded to the
@@ -109,6 +109,8 @@ public class Editor extends JFrame {
             EditorAction action = new InsertAction(name, this);
             addKeyMapping(KeyStroke.getKeyStroke(ch), action);
 
+
+            // comment this statement if backspace key is not working.
             if (ch == '\b') {
                 name = "removeChar";
                 EditorAction actions = new RemoveAction(name, this);
@@ -118,7 +120,8 @@ public class Editor extends JFrame {
                 EditorAction shift = new LineshiftAction(name, this);
                 addKeyMapping(KeyStroke.getKeyStroke(ch), shift);
             }
-
+            // Uncomment this is if backspace key is not working
+           // addKeyMapping(KeyStroke.getKeyStroke((char) KeyEvent.VK_DELETE), new RemoveAction("removeChar",this));
             addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, InputEvent.ALT_MASK), new NavigationAction("moveLeft", "LEFT", this));
             addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, InputEvent.ALT_MASK), new NavigationAction("moveRight", "RIGHT", this));
             addKeyMapping(KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.ALT_MASK), new NavigationAction("moveUp", "UP", this));
