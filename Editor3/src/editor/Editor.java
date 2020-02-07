@@ -11,16 +11,8 @@ import editor.display.CharacterDisplay;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.HeadlessException;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.ActionMap;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.KeyStroke;
-import javax.swing.WindowConstants;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  * Editor is the main class of the editor application. It is mainly responsible
@@ -57,12 +49,17 @@ public class Editor extends JFrame {
                 exit();
             }
         });
-
         display = new CharacterDisplay();
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
         contentPane.add(display, BorderLayout.CENTER);
-
+        JButton button = createButton();add(button,BorderLayout.PAGE_END);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                doc.saveFunction();
+            }
+        });
         /**
          * The inputMap and actionMap determine what happens when the user
          * presses a key on the keyboard. The keys are not hard-coded to the
@@ -138,4 +135,11 @@ public class Editor extends JFrame {
     public Document getDocument() {
         return doc;
     }
+
+    private JButton createButton(){
+        JButton button = new JButton("Save");
+        button.setBounds(100,100,100,100);
+        return button;
+    }
 }
+
